@@ -1,0 +1,28 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OlivierBouly/TPFinaleWeb.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "git+https://github.com/OlivierBouly/TPFinaleWeb/issues.git"
+  },
+  "homepage": "git+https://github.com/OlivierBouly/TPFinaleWeb#readme.git",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2",
+    "mongodb": "^5.3.0",
+    "mongoose": "^7.0.4",
+    "nodemon": "^2.0.22",
+    "uuid": "^9.0.0"
+  }
+}
