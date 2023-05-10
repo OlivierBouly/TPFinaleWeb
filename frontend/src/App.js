@@ -6,9 +6,10 @@ import {
   Switch
 } from 'react-router-dom';
 
-import Users from './user/pages/Users';
+import Etudiants from './etudiants/pages/Etudiants';
 import MainNavigation from './shared/components/Navigation/MainNavigation';
-import PlaceList from './places/components/PlaceList';
+import PageAcceuil from './shared/components/Accueil/PageAccueil';
+import Stages from './stages/pages/Stages';
 
 const App = () => {
 
@@ -16,16 +17,9 @@ const App = () => {
 
   routes = (
     <Switch>
-      <Route path="/" exact>
-        <Users />
-      </Route>
-      <Route path="/etudiants" exact>
-        <Users />
-      </Route>
-      <Route path="/stages" exact>
-        <PlaceList />
-      </Route>
-      <Redirect to="/" />
+      <Route path="/" exact><PageAcceuil /></Route>
+      <Route path="/etudiants" exact><Etudiants /></Route>
+      <Route path="/stages" exact><Stages /></Route>
     </Switch>
   );
 

@@ -11,9 +11,9 @@ import {
 import { useForm } from '../../shared/hooks/form-hook';
 import { useHttpClient } from '../../shared/hooks/http-hook';
 import { AuthContext } from '../../shared/context/auth-context';
-import './PlaceForm.css';
+import './StageForm.css';
 
-const NewPlace = () => {
+const NewStage = () => {
   const auth = useContext(AuthContext);
   const { error, sendRequest, clearError } = useHttpClient();
   const [formState, inputHandler] = useForm(
@@ -36,13 +36,13 @@ const NewPlace = () => {
 
   const history = useHistory();
 
-  const placeSubmitHandler  = async event =>  {
+  const stageSubmitHandler  = async event =>  {
     event.preventDefault();
     console.log(formState.inputs); // send this to the backend!
 
     try {
       const reponseData = await sendRequest(
-        "http://localhost:5000/api/places",
+        "http://localhost:5000/api/stages",
         "POST",
         JSON.stringify({
           titre: formState.inputs.title.value,
@@ -65,7 +65,7 @@ const NewPlace = () => {
   return (
     <React.Fragment>
       <ErrorModal error={error} onClear={clearError}/>
-    <form className="place-form" onSubmit={placeSubmitHandler}>
+    <form className="stage-form" onSubmit={stageSubmitHandler}>
       <Input
         id="title"
         element="input"
@@ -92,11 +92,11 @@ const NewPlace = () => {
         onInput={inputHandler}
       />
       <Button type="submit" disabled={!formState.isValid}>
-        Ajouter place
+        Ajouter stage
       </Button>
     </form>
     </React.Fragment>
   );
 };
 
-export default NewPlace;
+export default NewStage;

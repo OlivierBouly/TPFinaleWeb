@@ -1,23 +1,23 @@
 import React, { useState, useEffect } from "react";
 import { useHttpClient } from "../../shared/hooks/http-hook";
 import ErrorModal from "../../shared/components/UIElements/ErrorModal";
-import UsersList from "../components/UsersList";
+import EtudiantsList from "../components/EtudiantsList";
 
-const Users = () => {
+const Etudiants = () => {
   const {error, sendRequest, clearError } = useHttpClient();
-  const [utilisateurs, setUtilisateurs] = useState();
+  const [etudiants, setEtudiants] = useState();
 
   useEffect(() => {
-    const recupererUtilisateurs = async () => {
+    const recupererEtudiants = async () => {
       try {
-        const reponseData = await sendRequest("http://localhost:5000/api/utilisateurs");
+        const reponseData = await sendRequest("http://localhost:5000/api/etudiants");
 
-        setUtilisateurs(reponseData.utilisateurs);
+        setEtudiants(reponseData.etudiants);
       } catch (err) {
         
       }
     };
-    recupererUtilisateurs();
+    recupererEtudiants();
   }, [sendRequest]);
 
 
@@ -25,9 +25,9 @@ const Users = () => {
   return (
     <React.Fragment>
       <ErrorModal error={error} onClear={clearError} />
-     {utilisateurs && <UsersList items={utilisateurs} />};
+     {etudiants && <EtudiantsList items={etudiants} />};
     </React.Fragment>
   );
 };
 
-export default Users;
+export default Etudiants;

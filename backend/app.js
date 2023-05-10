@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 mongoose.set('strictQuery', true);
 
-const placesRoutes = require("./routes/places-routes");
+const placesRoutes = require("./routes/stages-routes");
 const utilisateursRoutes = require("./routes/utilisateurs-routes");
 const HttpErreur = require("./models/http-erreur");
 
@@ -18,8 +18,8 @@ app.use((requete, reponse, next) =>{
   next();
 })
 
-app.use("/api/places", placesRoutes);
-app.use("/api/utilisateurs", utilisateursRoutes);
+app.use("/api/stages", placesRoutes);
+app.use("/api/etudiants", utilisateursRoutes);
 
 app.use((requete, reponse, next) => {
   return next(new HttpErreur("Route non trouvée", 404));
