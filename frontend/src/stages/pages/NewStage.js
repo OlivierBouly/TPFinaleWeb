@@ -18,7 +18,31 @@ const NewStage = () => {
   const { error, sendRequest, clearError } = useHttpClient();
   const [formState, inputHandler] = useForm(
     {
-      title: {
+      nomContact: {
+        value: '',
+        isValid: false
+      },
+      courrielContact: {
+        value: '',
+        isValid: false
+      },
+      telephoneContact: {
+        value: '',
+        isValid: false
+      },
+      entreprise: {
+        value: '',
+        isValid: false
+      },
+      adresseEntreprise: {
+        value: '',
+        isValid: false
+      },
+      type: {
+        value: '',
+        isValid: false
+      },
+      nbPostes: {
         value: '',
         isValid: false
       },
@@ -26,7 +50,7 @@ const NewStage = () => {
         value: '',
         isValid: false
       },
-      address: {
+      remuneration: {
         value: '',
         isValid: false
       }
@@ -45,10 +69,10 @@ const NewStage = () => {
         "http://localhost:5000/api/stages",
         "POST",
         JSON.stringify({
+          
           titre: formState.inputs.title.value,
           description: formState.inputs.description.value,
           adresse: formState.inputs.address.value,
-          createur: auth.userId
         }),
         {
           "Content-Type": "application/json",
@@ -67,12 +91,66 @@ const NewStage = () => {
       <ErrorModal error={error} onClear={clearError}/>
     <form className="stage-form" onSubmit={stageSubmitHandler}>
       <Input
-        id="title"
+        id="nomContact"
         element="input"
         type="text"
-        label="Titre"
+        label="Nom du contact"
         validators={[VALIDATOR_REQUIRE()]}
         errorText="Entrez un nom valide."
+        onInput={inputHandler}
+      />
+      <Input
+        id="courrielContact"
+        element="input"
+        type="text"
+        label="Courriel du contact"
+        validators={[VALIDATOR_REQUIRE()]}
+        errorText="Entrez un courriel valide."
+        onInput={inputHandler}
+      />
+      <Input
+        id="telephoneContact"
+        element="input"
+        type="text"
+        label="Telephone du contact"
+        validators={[VALIDATOR_REQUIRE()]}
+        errorText="Entrez un numero de telephone valide."
+        onInput={inputHandler}
+      />
+      <Input
+        id="entreprise"
+        element="input"
+        type="text"
+        label="Nom d'entreprise"
+        validators={[VALIDATOR_REQUIRE()]}
+        errorText="Entrez un nom d'entreprise valide."
+        onInput={inputHandler}
+      />
+      <Input
+        id="adresseEntreprise"
+        element="input"
+        type="text"
+        label="Adresse d'entreprise"
+        validators={[VALIDATOR_REQUIRE()]}
+        errorText="Entrez une adresse valide."
+        onInput={inputHandler}
+      />
+      <Input
+        id="type"
+        element="input"
+        type="text"
+        label="Type de stages"
+        validators={[VALIDATOR_REQUIRE()]}
+        errorText="Entrez un type de valide."
+        onInput={inputHandler}
+      />
+      <Input
+        id="nbPostes"
+        element="input"
+        type="text"
+        label="Nombre de postes"
+        validators={[VALIDATOR_REQUIRE()]}
+        errorText="Entrez un nombre de postes valide."
         onInput={inputHandler}
       />
       <Input
@@ -84,11 +162,11 @@ const NewStage = () => {
         onInput={inputHandler}
       />
       <Input
-        id="address"
+        id="remuneration"
         element="input"
-        label="Adresse"
+        label="Remuneration"
         validators={[VALIDATOR_REQUIRE()]}
-        errorText="Entrez une adresse valide."
+        errorText="Entrez une type de remuneration valide."
         onInput={inputHandler}
       />
       <Button type="submit" disabled={!formState.isValid}>

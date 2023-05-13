@@ -1,22 +1,13 @@
 import React from "react";
 
-import "./PageAccueil.css"
-import { NavLink } from 'react-router-dom';
+import "./PageDeroulement.css"
 
 function PageAcceuil(props) {
     return(
         <React.Fragment>
-                      <ul className="nav-links-accueil">
-      <li>
-        <NavLink to="/deroulementEtu" exact>Deroulement des stages (Etudiants)</NavLink>
-      </li>
-      <li>
-        <NavLink to="/deroulementEmp" exact>Deroulement des stages (Employeurs)</NavLink>
-      </li>
-    </ul>
             <div className="page-accueil">
                 <div id="drawer-hook"></div>
-                <img className="page-accueil_image" src="https://www.rccq.org/wp-content/uploads/2014/03/logo-college-montmorency.png" alt="logo du college montmorency" ></img>
+                <img className="page-accueil_image" src="https://www.rccq.org/wp-content/uploads/2014/03/logo-college-montmorency.png" alt="logo du college montmorency" width={200} height={200}></img>
                 <h1 className="page-accueil_titre">Édition 2023</h1>
                 <div className="page-accueil_text">Bienvenue sur le site des stages de fin d'études des
 techniques de l'informatique du  Collège Montmorency!
@@ -44,8 +35,6 @@ selon une des deux voies de sortie du programme:
 Réseaux et sécurité informatique
 Développement d'applications informatiques</div>
             </div>
-
-
         </React.Fragment>
     );
 }

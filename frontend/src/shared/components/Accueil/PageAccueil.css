@@ -9,7 +9,8 @@
 
 .page-accueil_text {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    width: 800px;
+    width: 1000px;
+    top: 0 ;
 }
 
 .page-accueil_titre {
@@ -17,7 +18,81 @@
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-.page-accueil_image {
-    width: 1000px;
-    height: 562px;
+.page-accueil img {
+    width: 676px;
+    height: 380px;
 }
+
+.nav-links-accueil {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: block;
+    position: fixed;
+  }
+  
+  .nav-links-accueil li {
+    margin: 1rem;
+    padding: 8px;
+  }
+  
+  .nav-links-accueil a {
+    border: 1px solid transparent;
+    color: #292929;
+    text-decoration: none;
+    padding: 0.5rem;
+  }
+  
+  .nav-links-accueil a:hover,
+  .nav-links-accueil a:active,
+  .nav-links-accueil a.active {
+    background: #f8df00;
+    border-color: #292929;
+    color: #292929;
+  }
+  
+  .nav-links-accueil button {
+    cursor: pointer;
+    border: 1px solid #292929;
+    color: #292929;
+    background: transparent;
+    padding: 0.5rem;
+    font: inherit;
+  }
+  
+  .nav-links-accueil button:focus {
+    outline: none;
+  }
+  
+  .nav-links-accueil button:hover,
+  .nav-links-accueil button:active {
+    background: #292929;
+    color: white;
+  }
+  
+  @media (min-width: 768px) {
+    .nav-links-accueil {
+      flex-direction: row;
+    }
+  
+    .nav-links-accueil li {
+      margin: 0 0.5rem;
+    }
+  
+    .nav-links-accueil a {
+      color: white;
+      text-decoration: none;
+    }
+  
+    .nav-links-accueil button {
+      border: 1px solid white;
+      color: white;
+      background: transparent;
+    }
+    
+    .nav-links-accueil button:hover,
+    .nav-links-accueil button:active {
+      background: #f8df00;
+      color: #292929;
+    }
+  }

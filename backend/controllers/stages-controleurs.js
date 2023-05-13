@@ -24,7 +24,6 @@ const getStageById = async (requete, reponse, next) => {
 };
 
 const getStages = async (requete, reponse, next) => {
-  const stageId = requete.params.stageId;
   let stages;
   try {
     stages = await Stage.find();
@@ -75,39 +74,38 @@ const getStagesByUserId = async (requete, reponse, next) => {
 };
 
 const creerStage = async (requete, reponse, next) => {
-  const { titre, description, adresse, createur } = requete.body;
+  const { nomContact, courrielContact, telephoneContact, entreprise, adresseEntreprise, type, nbPostes, description, remuneration } = requete.body;
   const nouvelleStage = new Stage({
-    titre,
+    nomContact,
+    courrielContact,
+    telephoneContact,
+    entreprise,
+    adresseEntreprise,
+    type,
+    nbPostes,
     description,
-    adresse,
-    image:
-      "https://www.cmontmorency.qc.ca/wp-content/uploads/images/college/Porte_1_juin_2017-1024x683.jpg",
-    createur,
+    remuneration,
+    etudiants: []
   });
 
-  let utilisateur;
+  let stageExiste;
 
   try {
-    utilisateur = await Utilisateur.findById(createur);
-    
-  } catch {
-    
-    return next(new HttpErreur("Création de stage échouée", 500));
+      stageExiste = await Stage.findOne({ titre: titre });
+  } catch (err){
+      console.log(err)
+      return next(new HttpErreur("Échec vérification stage existe", 500));
   }
 
-  if (!utilisateur) {
-    return next(new HttpErreur("Utilisateur non trouvé selon le id"), 504);
+  if (stageExiste) {
+    return next(
+      new HttpErreur("Stage existe deja", 422)
+    );
   }
 
   try {
-
-    
     await nouvelleStage.save();
-    //Ce n'est pas le push Javascript, c'est le push de mongoose qui récupe le id de la stage et l'ajout au tableau de l'utilisateur
-    utilisateur.stages.push(nouvelleStage);
-    await utilisateur.save();
-    //Une transaction ne crée pas automatiquement de collection dans mongodb, même si on a un modèle
-    //Il faut la créer manuellement dans Atlas ou Compass
+
   } catch (err) {
     const erreur = new HttpErreur("Création de stage échouée", 500);
     return next(erreur);
@@ -128,7 +126,7 @@ const updateStage = async (requete, reponse, next) => {
     await stage.save();
   } catch {
     return next(
-      new HttpErreur("Erreur lors de la mise à jour de la stage", 500)
+      new HttpErreur("Erreur lors de la mise à jour du stage", 500)
     );
   }
 
