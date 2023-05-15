@@ -12,6 +12,7 @@ import PageAcceuil from './shared/components/Accueil/PageAccueil';
 import Stages from './stages/pages/Stages';
 import PageDeroulementEtudiant from "./shared/components/Information/PageDeroulementEtudiant"
 import PageDeroulementEmployeur from "./shared/components/Information/PageDeroulementEmployeur"
+import PageProfilEtCompetence from './shared/components/Information/PageProfilEtCompetence';
 
 const App = () => {
 
@@ -24,6 +25,8 @@ const App = () => {
       <Route path="/stages" exact><Stages /></Route>
       <Route path="/deroulementEtu" exact><PageDeroulementEtudiant /></Route>
       <Route path="/deroulementEmp" exact><PageDeroulementEmployeur /></Route>
+      <Route path="/profilRes" exact><PageProfilEtCompetence /></Route>
+      <Route path="/profilApp" exact><PageProfilEtCompetence /></Route>
     </Switch>
   );
 

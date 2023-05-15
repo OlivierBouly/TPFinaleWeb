@@ -2,7 +2,7 @@ import React from "react";
 
 import "./PageDeroulement.css"
 
-function PageAcceuil(props) {
+function PageDeroulementEtudiant(props) {
     return(
         <React.Fragment>
             <div className="page-accueil">
@@ -67,4 +67,4 @@ function PageAcceuil(props) {
     );
 }
 
-export default PageAcceuil;
+export default PageDeroulementEtudiant;

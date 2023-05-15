@@ -2,7 +2,7 @@ import React from "react";
 
 import "./PageDeroulement.css"
 
-function PageAcceuil(props) {
+function PageDeroulementEmployeur(props) {
     return(
         <React.Fragment>
             <div className="page-accueil">
@@ -39,4 +39,4 @@ Développement d'applications informatiques</div>
     );
 }
 
-export default PageAcceuil;
+export default PageDeroulementEmployeur;

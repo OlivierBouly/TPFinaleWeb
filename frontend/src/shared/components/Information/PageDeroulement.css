@@ -21,3 +21,23 @@
     width: 1000px;
     height: 562px;
 }
+
+a {
+    border: 1px solid transparent;
+    color: #292929;
+    text-decoration: none;
+    padding: 0.5rem;
+  }
+
+  a:hover,
+a:active,
+a.active {
+    background: #f8df00;
+    border-color: #292929;
+    color: #292929;
+  }
+
+a {
+    color: white;
+    text-decoration: none;
+  }

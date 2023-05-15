@@ -13,6 +13,9 @@ function PageAcceuil(props) {
       <li>
         <NavLink to="/deroulementEmp" exact>Deroulement des stages (Employeurs)</NavLink>
       </li>
+      <li>
+        <NavLink to="/profilApp" exact>Profils et competences des stagiaires</NavLink>
+      </li>
     </ul>
             <div className="page-accueil">
                 <div id="drawer-hook"></div>
