@@ -10,29 +10,32 @@ const StageList = props => {
     return (
       <div className="stage-list center">
         <Card>
-          <h2>No stages found. Maybe create one?</h2>
-          <Button to="/stages/new">Share stages</Button>
+          <h2>Aucun stages</h2>
+          <Button to="/stages/new">Nouveau stage</Button>
         </Card>
       </div>
     );
   }
 
   return (
-    <ul className="stage-list">
-      {props.items.map(stage => (
-        <StageItem
-          key={stage.id}
-          id={stage.id}
-          image={stage.image}
-          title={stage.titre}
-          description={stage.description}
-          address={stage.address}
-          creatorId={stage.createur}
-          coordinates={stage.location}
-          onDelete={props.onDeleteStage}
-        />
-      ))}
-    </ul>
+    <React.Fragment>
+      <Button to="/stages/new">Nouveau stage</Button>
+      <ul className="stage-list">
+        {props.items.map(stage => (
+          <StageItem
+            key={stage.id}
+            id={stage.id}
+            image={stage.image}
+            title={stage.titre}
+            description={stage.description}
+            address={stage.address}
+            creatorId={stage.createur}
+            coordinates={stage.location}
+            onDelete={props.onDeleteStage}
+          />
+        ))}
+      </ul>
+    </React.Fragment>
   );
 };
 

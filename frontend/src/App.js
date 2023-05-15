@@ -14,6 +14,7 @@ import PageDeroulementEtudiant from "./shared/components/Information/PageDeroule
 import PageDeroulementEmployeur from "./shared/components/Information/PageDeroulementEmployeur"
 import PageProfilEtCompetence from './shared/components/Information/PageProfilEtCompetence';
 import NewStage from "./stages/pages/NewStage"
+import PageFAQ from './shared/components/Information/PageFAQ';
 
 const App = () => {
 
@@ -29,6 +30,7 @@ const App = () => {
       <Route path="/deroulementEmp" exact><PageDeroulementEmployeur /></Route>
       <Route path="/profilRes" exact><PageProfilEtCompetence /></Route>
       <Route path="/profilApp" exact><PageProfilEtCompetence /></Route>
+      <Route path="/faq" exact><PageFAQ /></Route>
     </Switch>
   );
 
