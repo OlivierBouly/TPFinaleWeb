@@ -10,11 +10,9 @@ import {
 } from '../../shared/util/validators';
 import { useForm } from '../../shared/hooks/form-hook';
 import { useHttpClient } from '../../shared/hooks/http-hook';
-import { AuthContext } from '../../shared/context/auth-context';
 import './StageForm.css';
 
 const NewStage = () => {
-  const auth = useContext(AuthContext);
   const { error, sendRequest, clearError } = useHttpClient();
   const [formState, inputHandler] = useForm(
     {
@@ -66,13 +64,18 @@ const NewStage = () => {
 
     try {
       const reponseData = await sendRequest(
-        "http://localhost:5000/api/stages",
+        "http://localhost:5000/api/stages/creerStages",
         "POST",
         JSON.stringify({
-          
-          titre: formState.inputs.title.value,
+          nomContact: formState.inputs.nomContact.value,
+          courrielContact: formState.inputs.courrielContact.value,
+          telephoneContact: formState.inputs.telephoneContact.value,
+          entreprise: formState.inputs.entreprise.value,
+          adresseEntreprise: formState.inputs.adresseEntreprise.value,
+          type: formState.inputs.type.value,
+          nbPostes: formState.inputs.nbPostes.value,
           description: formState.inputs.description.value,
-          adresse: formState.inputs.address.value,
+          remuneration: formState.inputs.remuneration.value
         }),
         {
           "Content-Type": "application/json",

@@ -89,7 +89,7 @@ const creerStage = async (requete, reponse, next) => {
   });
 
   let stageExiste;
-
+/*
   try {
       stageExiste = await Stage.findOne({ titre: titre });
   } catch (err){
@@ -102,7 +102,7 @@ const creerStage = async (requete, reponse, next) => {
       new HttpErreur("Stage existe deja", 422)
     );
   }
-
+*/
   try {
     await nouvelleStage.save();
 

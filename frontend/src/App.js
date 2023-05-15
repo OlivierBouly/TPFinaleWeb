@@ -13,6 +13,7 @@ import Stages from './stages/pages/Stages';
 import PageDeroulementEtudiant from "./shared/components/Information/PageDeroulementEtudiant"
 import PageDeroulementEmployeur from "./shared/components/Information/PageDeroulementEmployeur"
 import PageProfilEtCompetence from './shared/components/Information/PageProfilEtCompetence';
+import NewStage from "./stages/pages/NewStage"
 
 const App = () => {
 
@@ -23,6 +24,7 @@ const App = () => {
       <Route path="/" exact><PageAcceuil /></Route>
       <Route path="/etudiants" exact><Etudiants /></Route>
       <Route path="/stages" exact><Stages /></Route>
+      <Route path="/stages/new" exact><NewStage /></Route>
       <Route path="/deroulementEtu" exact><PageDeroulementEtudiant /></Route>
       <Route path="/deroulementEmp" exact><PageDeroulementEmployeur /></Route>
       <Route path="/profilRes" exact><PageProfilEtCompetence /></Route>
