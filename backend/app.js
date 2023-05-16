@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 mongoose.set('strictQuery', true);
 
 const stagesRoutes = require("./routes/stages-routes");
-const utilisateursRoutes = require("./routes/utilisateurs-routes");
+const etudiantsRoutes = require("./routes/etudiants-routes");
 const HttpErreur = require("./models/http-erreur");
 
 const app = express();
@@ -19,7 +19,7 @@ app.use((requete, reponse, next) =>{
 })
 
 app.use("/api/stages", stagesRoutes);
-app.use("/api/etudiants", utilisateursRoutes);
+app.use("/api/etudiants", etudiantsRoutes);
 
 app.use((requete, reponse, next) => {
   return next(new HttpErreur("Route non trouvée", 404));

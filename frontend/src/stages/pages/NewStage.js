@@ -1,5 +1,4 @@
-import React, {useContext} from 'react';
-import { useHistory } from 'react-router-dom';
+import React from 'react';
 
 import Input from '../../shared/components/FormElements/Input';
 import Button from '../../shared/components/FormElements/Button';
@@ -57,8 +56,6 @@ const NewStage = () => {
     false
   );
 
-  const history = useHistory();
-
   const stageSubmitHandler  = async event =>  {
     event.preventDefault();
     console.log(formState.inputs); // send this to the backend!
@@ -82,7 +79,6 @@ const NewStage = () => {
           "Content-Type": "application/json",
         }
       );
-
       console.log(reponseData);
      // history.push("/");
     } catch (err) {

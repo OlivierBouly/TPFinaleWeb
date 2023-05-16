@@ -1,11 +1,10 @@
 const { response } = require("express");
 const { default: mongoose, mongo } = require("mongoose");
-const { v4: uuidv4 } = require("uuid");
 
 const HttpErreur = require("../models/http-erreur");
 
 const Stage = require("../models/stage");
-const Utilisateur = require("../models/utilisateur");
+const Etudiant = require("../models/etudiant");
 
 const getStageById = async (requete, reponse, next) => {
   const stageId = requete.params.stageId;
@@ -47,7 +46,7 @@ const getStagesByUserId = async (requete, reponse, next) => {
 
   let stages;
   try {
-   let  utilisateur = await Utilisateur.findById(utilisateurId).populate("stages");
+   let  utilisateur = await Etudiant.findById(utilisateurId).populate("stages");
   
   stages =  utilisateur.stages;
   console.log(utilisateur);
@@ -75,7 +74,7 @@ const getStagesByUserId = async (requete, reponse, next) => {
 
 const creerStage = async (requete, reponse, next) => {
   const { nomContact, courrielContact, telephoneContact, entreprise, adresseEntreprise, type, nbPostes, description, remuneration } = requete.body;
-  const nouvelleStage = new Stage({
+  const nouveauStage = new Stage({
     nomContact,
     courrielContact,
     telephoneContact,
@@ -89,9 +88,9 @@ const creerStage = async (requete, reponse, next) => {
   });
 
   let stageExiste;
-/*
+
   try {
-      stageExiste = await Stage.findOne({ titre: titre });
+      stageExiste = await Stage.findOne({ description: description });
   } catch (err){
       console.log(err)
       return next(new HttpErreur("Échec vérification stage existe", 500));
@@ -102,15 +101,15 @@ const creerStage = async (requete, reponse, next) => {
       new HttpErreur("Stage existe deja", 422)
     );
   }
-*/
+
   try {
-    await nouvelleStage.save();
+    await nouveauStage.save();
 
   } catch (err) {
     const erreur = new HttpErreur("Création de stage échouée", 500);
     return next(erreur);
   }
-  reponse.status(201).json({ stage: nouvelleStage });
+  reponse.status(201).json({ nouveauStage });
 };
 
 const updateStage = async (requete, reponse, next) => {

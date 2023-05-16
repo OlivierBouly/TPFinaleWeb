@@ -1,19 +1,19 @@
 const express = require("express");
 
-const controleursStage = require("../controllers/stages-controleurs")
+const controlleursStage = require("../controllers/stages-controlleurs")
 
 const router = express.Router();
 
-router.get("/", controleursStage.getStages)
+router.get("/", controlleursStage.getStages)
 
-router.get("/:stageId", controleursStage.getStageById);
+router.get("/:stageId", controlleursStage.getStageById);
 
-router.get("/utilisateur/:utilisateurId", controleursStage.getStagesByUserId);
+router.get("/utilisateur/:utilisateurId", controlleursStage.getStagesByUserId);
 
-router.post('/creerStages', controleursStage.creerStage);
+router.post('/creerStages', controlleursStage.creerStage);
 
-router.patch('/:stageId', controleursStage.updateStage);
+router.patch('/:stageId', controlleursStage.updateStage);
 
-router.delete('/:stageId', controleursStage.supprimerStage);
+router.delete('/:stageId', controlleursStage.supprimerStage);
 
 module.exports = router;
