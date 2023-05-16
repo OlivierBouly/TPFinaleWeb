@@ -10,7 +10,6 @@ const FiltreStages = (props) => {
   return (
     <div className='stages-filter'>
       <div className='stages-filter__control'>
-        <label>Filtrer par profil</label>
         <select value={props.selected} onChange={menuDeroulantHandler}>
           <option value='development'>Développement d'applications</option>
           <option value='network'>Réseau et Sécurité</option>

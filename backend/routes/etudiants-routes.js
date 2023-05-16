@@ -5,8 +5,6 @@ const router = express.Router();
 
 router.get('/', controleursEtudiants.getEtudiants);
 
-router.post('/inscription', controleursEtudiants.inscription);
-
-router.post('/connexion', controleursEtudiants.connexion);
+router.post('/creerEtudiants', controleursEtudiants.inscription);
 
 module.exports = router;

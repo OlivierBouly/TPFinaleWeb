@@ -2,6 +2,7 @@ import React from 'react';
 
 import EtudiantItem from './EtudiantItem';
 import Card from '../../shared/components/UIElements/Card';
+import Button from '../../shared/components/FormElements/Button';
 import './EtudiantsList.css';
 
 const EtudiantsList = props => {
@@ -10,23 +11,27 @@ const EtudiantsList = props => {
       <div className="center">
         <Card>
           <h2>Aucun étudiant trouvé</h2>
+          <Button to="/etudiants/new">Nouvelle étudiant</Button>
         </Card>
       </div>
     );
   }
 
   return (
-    <ul className="etudiants-list">
-      {props.items.map(etudiant => (
-        <EtudiantItem
-          key={etudiant.id}
-          id={etudiant.id}
-          image={etudiant.image}
-          nom={etudiant.nom}
-          places={etudiant.places}
-        />
-      ))}
-    </ul>
+    <React.Fragment>
+      <Button to="/etudiants/new">Nouvelle étudiant</Button>
+      <ul className="etudiants-list">
+        {props.items.map(etudiant => (
+          <EtudiantItem
+            key={etudiant.id}
+            id={etudiant.id}
+            image={etudiant.image}
+            nom={etudiant.nom}
+            places={etudiant.places}
+          />
+        ))}
+      </ul>
+    </React.Fragment>
   );
 };
 

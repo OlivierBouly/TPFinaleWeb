@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-import Card from '../../shared/components/UIElements/Card';
 import FiltreStages from './FiltreStages';
 import StageList from './StageList';
 import './Stages.css';

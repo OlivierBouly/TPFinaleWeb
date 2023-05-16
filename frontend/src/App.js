@@ -15,6 +15,8 @@ import PageDeroulementEmployeur from "./shared/components/Information/PageDeroul
 import PageProfilEtCompetence from './shared/components/Information/PageProfilEtCompetence';
 import NewStage from "./stages/pages/NewStage"
 import PageFAQ from './shared/components/Information/PageFAQ';
+import Footer from "./shared/components/Footer/Footer";
+import NewEtudiant from "./etudiants/pages/NewEtudiant";
 
 const App = () => {
 
@@ -24,6 +26,7 @@ const App = () => {
     <Switch>
       <Route path="/" exact><PageAcceuil /></Route>
       <Route path="/etudiants" exact><Etudiants /></Route>
+      <Route path="/etudiants/new" exact><NewEtudiant /></Route>
       <Route path="/stages" exact><Stages /></Route>
       <Route path="/stages/new" exact><NewStage /></Route>
       <Route path="/deroulementEtu" exact><PageDeroulementEtudiant /></Route>
@@ -38,6 +41,7 @@ const App = () => {
     <Router>
       <MainNavigation />
       <main>{routes}</main>
+      <Footer />
     </Router>
   );
 };

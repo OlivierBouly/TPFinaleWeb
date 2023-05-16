@@ -25,7 +25,7 @@ const getStageById = async (requete, reponse, next) => {
 const getStages = async (requete, reponse, next) => {
   let stages;
   try {
-    stages = await Stage.find();
+    stages = await Stage.find().populate("etudiants");
   } catch (err) {
     return next(
       new HttpErreur("Erreur lors de la récupération des stages", 500)

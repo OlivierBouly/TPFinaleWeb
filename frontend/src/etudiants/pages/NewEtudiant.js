@@ -3,8 +3,6 @@ import React from 'react';
 import Input from '../../shared/components/FormElements/Input';
 import Button from '../../shared/components/FormElements/Button';
 import ErrorModal from "../../shared/components/UIElements/ErrorModal"
-import { useHistory } from 'react-router-dom';
-
 import {
   VALIDATOR_REQUIRE,
   VALIDATOR_MINLENGTH,
@@ -12,7 +10,7 @@ import {
 } from '../../shared/util/validators';
 import { useForm } from '../../shared/hooks/form-hook';
 import { useHttpClient } from '../../shared/hooks/http-hook';
-import './StageForm.css';
+import './EtudiantForm.css';
 
 const NewStage = () => {
   const { error, sendRequest, clearError } = useHttpClient();
@@ -58,15 +56,13 @@ const NewStage = () => {
     false
   );
 
-  const history = useHistory();
-
   const stageSubmitHandler  = async event =>  {
     event.preventDefault();
     console.log(formState.inputs); // send this to the backend!
 
     try {
       const reponseData = await sendRequest(
-        "http://localhost:5000/api/stages/creerStages",
+        "http://localhost:5000/api/etudiants/creerEtudiants",
         "POST",
         JSON.stringify({
           nomContact: formState.inputs.nomContact.value,
@@ -83,8 +79,7 @@ const NewStage = () => {
           "Content-Type": "application/json",
         }
       );
-      console.log(reponseData);
-      history.push("/");
+     // history.push("/");
     } catch (err) {
       console.log(err);
     }
