@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useHttpClient } from "../../shared/hooks/http-hook";
 import ErrorModal from "../../shared/components/UIElements/ErrorModal";
-import StageList from "../components/StageList";
+import StagesComp from "../components/StagesComp";
 
 const Stages = () => {
   const {error, sendRequest, clearError } = useHttpClient();
@@ -25,7 +25,7 @@ const Stages = () => {
   return (
     <React.Fragment>
       <ErrorModal error={error} onClear={clearError} />
-     {stages && <StageList items={stages} />};
+     {stages && <StagesComp items={stages} />};
     </React.Fragment>
   );
 };
