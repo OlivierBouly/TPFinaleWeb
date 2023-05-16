@@ -23,15 +23,16 @@ const StageList = props => {
       <ul className="stage-list">
         {props.items.map(stage => (
           <StageItem
-            key={stage.id}
-            id={stage.id}
-            image={stage.image}
-            title={stage.titre}
+            nomContact={stage.nomContact}
+            courrielContact={stage.courrielContact}
+            telephoneContact={stage.telephoneContact}
+            entreprise={stage.entreprise}
+            addressEntreprise={stage.addressEntreprise}
+            type={stage.type}
+            nbPostes={stage.nbPostes}
             description={stage.description}
-            address={stage.address}
-            creatorId={stage.createur}
-            coordinates={stage.location}
-            onDelete={props.onDeleteStage}
+            remuneration={stage.remuneration}
+            etudiants={stage.etudiants}
           />
         ))}
       </ul>

@@ -9,7 +9,7 @@ const EtudiantsList = props => {
     return (
       <div className="center">
         <Card>
-          <h2>Aucun utilisateur trouvé</h2>
+          <h2>Aucun étudiant trouvé</h2>
         </Card>
       </div>
     );
