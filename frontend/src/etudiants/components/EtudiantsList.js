@@ -11,7 +11,7 @@ const EtudiantsList = props => {
       <div className="center">
         <Card>
           <h2>Aucun étudiant trouvé</h2>
-          <Button to="/etudiants/new">Nouvelle étudiant</Button>
+          <Button to="/etudiants/new">Nouvel étudiant</Button>
         </Card>
       </div>
     );
@@ -19,15 +19,14 @@ const EtudiantsList = props => {
 
   return (
     <React.Fragment>
-      <Button to="/etudiants/new">Nouvelle étudiant</Button>
+      <Button to="/etudiants/new">Nouvel étudiant</Button>
       <ul className="etudiants-list">
         {props.items.map(etudiant => (
           <EtudiantItem
-            key={etudiant.id}
-            id={etudiant.id}
-            image={etudiant.image}
             nom={etudiant.nom}
-            places={etudiant.places}
+            noDa={etudiant.noDa}
+            courriel={etudiant.courriel}
+            type={etudiant.profilSortie}
           />
         ))}
       </ul>

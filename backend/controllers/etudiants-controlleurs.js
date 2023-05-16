@@ -6,7 +6,7 @@ const getEtudiants = async (requete, reponse, next) => {
   let etudiants;
 
   try {
-    etudiants = await Etudiant.find();
+    etudiants = await Etudiant.find().populate("stage");
   } catch {
     return next(new HttpErreur("Erreur accès etudiants"), 500);
   }
@@ -47,7 +47,7 @@ const inscription = async (requete, reponse, next) => {
     nom,
     courriel,
     profilSortie,
-    stage,
+    stage: null,
   });
   try {
     await nouvelEtudiant.save();
