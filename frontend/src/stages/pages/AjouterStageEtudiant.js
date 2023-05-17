@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useHttpClient } from "../../shared/hooks/http-hook";
-import ErrorModal from "../../shared/components/UIElements/ErrorModal";
 import StagesComp from "../components/StagesComp";
 
 const Stages = () => {

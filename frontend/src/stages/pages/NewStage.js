@@ -84,7 +84,7 @@ const NewStage = () => {
         }
       );
       console.log(reponseData);
-      history.push("/");
+      history.push("/stages");
     } catch (err) {
       console.log(err);
     }

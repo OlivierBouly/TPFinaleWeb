@@ -1,5 +1,9 @@
 const HttpErreur = require("../models/http-erreur");
 
+const mongoose = require('mongoose');
+const MongoClient = require('mongodb').MongoClient;
+const { response } = require("express");
+
 const Etudiant = require("../models/etudiant");
 
 const getEtudiants = async (requete, reponse, next) => {
@@ -60,6 +64,23 @@ const inscription = async (requete, reponse, next) => {
     .json({ etudiant: nouvelEtudiant.toObject({ getter: true }) });
 };
 
+const ajouterStage = async (requete, reponse, next) => {
+  const {stageId} = requete.boby;
+  const noDa = requete.params.noDa;
+
+  try{
+    etudiant = await Etudiant.findOne({'noDa': noDa});
+
+    stageObjId = new mongoose.Types.ObjectId(stageId);
+    etudiant.stage = stageId;
+  } catch(err){
+    console.log(err);
+    return next(
+      new HttpErreur("Erreur lors de la mise a jour de l'étudiant", 500)
+    )
+  }
+}
+
 const connexion = async (requete, reponse, next) => {
   const { courriel, motDePasse } = requete.body;
 
@@ -83,6 +104,7 @@ const connexion = async (requete, reponse, next) => {
   });
 };
 
+exports.ajouterStage = ajouterStage;
 exports.getEtudiants = getEtudiants;
 exports.inscription = inscription;
 exports.connexion = connexion;

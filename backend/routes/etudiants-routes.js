@@ -1,10 +1,12 @@
 const express = require("express");
 
-const controleursEtudiants = require("../controllers/etudiants-controlleurs")
+const controlleursEtudiants = require("../controllers/etudiants-controlleurs")
 const router = express.Router();
 
-router.get('/', controleursEtudiants.getEtudiants);
+router.get('/', controlleursEtudiants.getEtudiants);
 
-router.post('/creerEtudiants', controleursEtudiants.inscription);
+router.post('/creerEtudiants', controlleursEtudiants.inscription);
+
+router.patch('/:noDa/ajouterStage', controlleursEtudiants.ajouterStage)
 
 module.exports = router;

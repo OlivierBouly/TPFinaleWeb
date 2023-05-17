@@ -17,8 +17,23 @@ import NewStage from "./stages/pages/NewStage"
 import PageFAQ from './shared/components/Information/PageFAQ';
 import Footer from "./shared/components/Footer/Footer";
 import NewEtudiant from "./etudiants/pages/NewEtudiant";
+import AjouterStageEtudiant from "./stages/pages/AjouterStageEtudiant"
+import { EtudiantContext } from './shared/context/etudiant-context';
 
 const App = () => {
+
+  const [noDa, setnoDa] = useState(false);
+  const [profil, setProfil] = useState(false);
+
+  const login = useCallback((noDa, profil) => {
+    setnoDa(noDa);
+    setProfil(profil);
+  }, []);
+
+  const logout = useCallback(() => {
+    setnoDa(null);
+    setProfil(null);
+  }, []);
 
   let routes;
 
@@ -34,15 +49,18 @@ const App = () => {
       <Route path="/profilRes" exact><PageProfilEtCompetence /></Route>
       <Route path="/profilApp" exact><PageProfilEtCompetence /></Route>
       <Route path="/faq" exact><PageFAQ /></Route>
+      <Route path="/etudiants/:noDa/ajouterStage" exact><AjouterStageEtudiant /></Route>
     </Switch>
   );
 
   return (
-    <Router>
-      <MainNavigation />
-      <main>{routes}</main>
-      <Footer />
-    </Router>
+    <EtudiantContext.Provider value={{ noDa: noDa, profil: profil, login: login, logout: logout }}>
+      <Router>
+        <MainNavigation />
+        <main>{routes}</main>
+        <Footer />
+      </Router>
+    </EtudiantContext.Provider>
   );
 };
 
