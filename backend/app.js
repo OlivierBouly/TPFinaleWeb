@@ -10,6 +10,7 @@ const HttpErreur = require("./models/http-erreur");
 const app = express();
 
 app.use(bodyParser.json());
+app.use(express.json())
 
 app.use((requete, reponse, next) =>{
   reponse.setHeader("Access-Control-Allow-Origin", "*");

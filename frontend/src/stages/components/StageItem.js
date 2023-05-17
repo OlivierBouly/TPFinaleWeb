@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-
+import { EtudiantContext } from "../../shared/context/etudiant-context";
 import Card from '../../shared/components/UIElements/Card';
 import Button from '../../shared/components/FormElements/Button';
 import { useHttpClient } from '../../shared/hooks/http-hook';
@@ -7,6 +7,8 @@ import './StageItem.css';
 import { useHistory } from 'react-router-dom';
 
 const StageItem = props => {
+  const etudiant = useContext(EtudiantContext);
+  const {error, sendRequest, clearError } = useHttpClient();
 
   const history = useHistory();
 
@@ -17,9 +19,24 @@ const StageItem = props => {
     type = "Réseau et Sécurité";
   }
 
-  const ajouterStageHandler = () => {
-
+  const ajouterStageHandler = async () => {
     history.push("/etudiants");
+    try {
+      await sendRequest(
+        `http://localhost:5000/api/etudiants/${etudiant.noDa}/ajouterStage`,
+        'PATCH',
+        JSON.stringify({
+          stageId : props.id,
+        }),
+        {
+          'Content-Type': 'application/json'
+        }
+      );
+
+    } catch (err) {
+      console.log(err)
+    }
+
   }
 
   if(window.location.pathname != "/stages"){

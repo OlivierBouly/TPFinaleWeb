@@ -65,7 +65,7 @@ const inscription = async (requete, reponse, next) => {
 };
 
 const ajouterStage = async (requete, reponse, next) => {
-  const {stageId} = requete.boby;
+  const {stageId} = requete.body;
   const noDa = requete.params.noDa;
 
   try{
@@ -73,6 +73,7 @@ const ajouterStage = async (requete, reponse, next) => {
 
     stageObjId = new mongoose.Types.ObjectId(stageId);
     etudiant.stage = stageId;
+    console.log(etudiant)
   } catch(err){
     console.log(err);
     return next(

@@ -15,7 +15,7 @@ const FiltreStages = (props) => {
       return (
         <div className='stages-filter'>
           <div className='stages-filter__control'>
-            <select value={props.selected}>
+            <select defaultValue={props.selected}>
               <option value='development'>Développement d'applications</option>
             </select>
           </div>
@@ -25,7 +25,7 @@ const FiltreStages = (props) => {
       return (
         <div className='stages-filter'>
           <div className='stages-filter__control'>
-            <select value={props.selected}>
+            <select defaultValue={props.selected}>
               <option value='network'>Réseau et Sécurité</option>
             </select>
           </div>

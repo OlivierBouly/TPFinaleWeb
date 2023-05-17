@@ -12,7 +12,7 @@ const EtudiantItem = props => {
   const etudiant = useContext(EtudiantContext);
 
   const ajouterStageHandler = () => {
-    etudiant.login(props.noDa, props.type);
+    etudiant.set(props.noDa, props.type);
     navigate.push(`/etudiants/${props.noDa}/ajouterStage`);
   }
 

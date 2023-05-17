@@ -33,6 +33,7 @@ const StageList = props => {
         <ul className="stage-list">
           {props.items.map(stage => (
             <StageItem
+              id={stage.id}
               nomContact={stage.nomContact}
               courrielContact={stage.courrielContact}
               telephoneContact={stage.telephoneContact}

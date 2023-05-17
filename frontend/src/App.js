@@ -25,12 +25,12 @@ const App = () => {
   const [noDa, setnoDa] = useState(false);
   const [profil, setProfil] = useState(false);
 
-  const login = useCallback((noDa, profil) => {
+  const set = useCallback((noDa, profil) => {
     setnoDa(noDa);
     setProfil(profil);
   }, []);
 
-  const logout = useCallback(() => {
+  const scratch = useCallback(() => {
     setnoDa(null);
     setProfil(null);
   }, []);
@@ -54,7 +54,7 @@ const App = () => {
   );
 
   return (
-    <EtudiantContext.Provider value={{ noDa: noDa, profil: profil, login: login, logout: logout }}>
+    <EtudiantContext.Provider value={{ noDa: noDa, profil: profil, set: set, scratch: scratch }}>
       <Router>
         <MainNavigation />
         <main>{routes}</main>
