@@ -57,7 +57,7 @@ const NewEtudiant = () => {
           "Content-Type": "application/json",
         }
       );
-     history.push("/");
+     history.push("/etudiants");
     } catch (err) {
       console.log(err);
     }

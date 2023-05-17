@@ -5,6 +5,7 @@ const MongoClient = require('mongodb').MongoClient;
 const { response } = require("express");
 
 const Etudiant = require("../models/etudiant");
+const Stage = require("../models/stage");
 
 const getEtudiants = async (requete, reponse, next) => {
   let etudiants;
@@ -74,13 +75,23 @@ const ajouterStage = async (requete, reponse, next) => {
     stageObjId = new mongoose.Types.ObjectId(stageId);
     etudiant.stage = stageId;
     await etudiant.save();
-    console.log(etudiant)
+
+    etudiant = await Etudiant.findOne({'noDa': noDa}).populate("stage");
+
+    stage = etudiant.stage;
+
+    stage.etudiants.push(etudiant._id);
+    await stage.save();
+    await etudiant.save()
   } catch(err){
     console.log(err);
     return next(
       new HttpErreur("Erreur lors de la mise a jour de l'étudiant", 500)
     )
   }
+  reponse
+  .status(201)
+  .json({ etudiant: etudiant.toObject({ getter: true }) });
 }
 
 const connexion = async (requete, reponse, next) => {
