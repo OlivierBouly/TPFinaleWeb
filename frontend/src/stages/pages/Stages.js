@@ -20,8 +20,6 @@ const Stages = () => {
     recupererStages();
   }, [sendRequest]);
 
-
-
   return (
     <React.Fragment>
      {stages && <StagesComp items={stages} />};

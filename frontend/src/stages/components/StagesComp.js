@@ -22,10 +22,11 @@ const Stages = (props) => {
   });
   
   const typeFiltrees = props.items.filter((stage) => {
-    return stage.type === filteredType;
+    return stage.type === filteredType && stage.nbPostes != stage.etudiants.length;
   });
 
   if(window.location.pathname != "/stages"){
+
     if(etudiant.profil == "development") {
       return (
         <div>
