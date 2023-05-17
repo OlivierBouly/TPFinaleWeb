@@ -27,6 +27,7 @@ const EtudiantsList = props => {
             noDa={etudiant.noDa}
             courriel={etudiant.courriel}
             type={etudiant.profilSortie}
+            stage={etudiant.stage}
           />
         ))}
       </ul>

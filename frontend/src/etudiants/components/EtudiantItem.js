@@ -23,6 +23,7 @@ const EtudiantItem = props => {
     type = "Réseau et Sécurité";
   }
   let stage;
+
   if(props.stage == null){
     stage = "Aucun stages";
   } else {
@@ -53,7 +54,9 @@ const EtudiantItem = props => {
               <h3>{props.noDa}</h3>
               <p>{props.courriel}</p>
               <p>{type}</p>
-              <p>{stage}</p>
+              <h4>Stage : </h4>
+              <p>{stage.entreprise}</p>
+              <p>{stage.description}</p>
             </div>
         </Card>
       </li>

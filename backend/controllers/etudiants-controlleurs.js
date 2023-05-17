@@ -73,6 +73,7 @@ const ajouterStage = async (requete, reponse, next) => {
 
     stageObjId = new mongoose.Types.ObjectId(stageId);
     etudiant.stage = stageId;
+    await etudiant.save();
     console.log(etudiant)
   } catch(err){
     console.log(err);
