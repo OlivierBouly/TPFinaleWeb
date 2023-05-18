@@ -35,9 +35,7 @@ app.use((error, requete, reponse, next) => {
     message: error.message || "Une erreur inconnue est survenue",
   });
 });
-
-mongoose
-.connect("mongodb://127.0.0.1:27017/mern")
+mongoose.connect(`mongodb+srv://user1:TqUkhCav0XquQGVH@mern.wzd2c0c.mongodb.net/?retryWrites=true&w=majority`)
 .then(() => {
     app.listen(5000)
     console.log("Connexion à la base de données réussie");
