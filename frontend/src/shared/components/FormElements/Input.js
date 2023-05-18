@@ -60,6 +60,31 @@ const Input = props => {
         onBlur={touchHandler}
         value={inputState.value}
       />
+    ) : props.element === 'select1' ?(
+      <select
+        id={props.id}
+        type={props.type}
+        placeholder={props.placeholder}
+        onChange={changeHandler}
+        onBlur={touchHandler}
+        value={inputState.value}
+      >
+        <option value="development">Dévelopement d'application</option>
+        <option value="network">Réseau et Sécurité</option>
+      </select>
+    ) : props.element === 'select2' ?(
+      <select
+        id={props.id}
+        type={props.type}
+        placeholder={props.placeholder}
+        onChange={changeHandler}
+        onBlur={touchHandler}
+        value={inputState.value}
+      >
+        <option value="none">Aucune rémunération</option>
+        <option value="onetimepayment">Montant unique pour le stage</option>
+        <option value="timebasedsalary">Salaire horaire</option>
+      </select>
     ) : (
       <textarea
         id={props.id}

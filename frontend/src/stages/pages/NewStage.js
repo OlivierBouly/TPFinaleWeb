@@ -84,8 +84,10 @@ const NewStage = () => {
         }
       );
       console.log(reponseData);
+      alert("Ajout de stage réussi!");
       history.push("/stages");
     } catch (err) {
+      alert("Ajout de stage échoué.");
       console.log(err);
     }
   };
@@ -141,8 +143,7 @@ const NewStage = () => {
       />
       <Input
         id="type"
-        element="input"
-        type="text"
+        element="select1"
         label="Type de stages"
         validators={[VALIDATOR_REQUIRE()]}
         errorText="Entrez un type de valide."
@@ -167,7 +168,7 @@ const NewStage = () => {
       />
       <Input
         id="remuneration"
-        element="input"
+        element="select2"
         label="Remuneration"
         validators={[VALIDATOR_REQUIRE()]}
         errorText="Entrez une type de remuneration valide."
