@@ -66,7 +66,7 @@ const NewStage = () => {
 
     try {
       const reponseData = await sendRequest(
-        "http://localhost:5000/api/stages/creerStages",
+        process.env.REACT_APP_BACKEND_URL + "/stages/creerStages",
         "POST",
         JSON.stringify({
           nomContact: formState.inputs.nomContact.value,

@@ -23,7 +23,7 @@ const StageItem = props => {
     history.push("/etudiants");
     try {
       await sendRequest(
-        `http://localhost:5000/api/etudiants/${etudiant.noDa}/ajouterStage`,
+        process.env.REACT_APP_BACKEND_URL + `/etudiants/${etudiant.noDa}/ajouterStage`,
         'PATCH',
         JSON.stringify({
           stageId : props.id,
