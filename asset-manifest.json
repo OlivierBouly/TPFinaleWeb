@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/TPFinaleWeb/static/css/main.0b9c011b.chunk.css",
+    "main.js": "/TPFinaleWeb/static/js/main.f29affe8.chunk.js",
+    "main.js.map": "/TPFinaleWeb/static/js/main.f29affe8.chunk.js.map",
+    "runtime-main.js": "/TPFinaleWeb/static/js/runtime-main.7ad53927.js",
+    "runtime-main.js.map": "/TPFinaleWeb/static/js/runtime-main.7ad53927.js.map",
+    "static/js/2.2a193634.chunk.js": "/TPFinaleWeb/static/js/2.2a193634.chunk.js",
+    "static/js/2.2a193634.chunk.js.map": "/TPFinaleWeb/static/js/2.2a193634.chunk.js.map",
+    "index.html": "/TPFinaleWeb/index.html",
+    "precache-manifest.3ec877295b415fc532824adb2d5dc238.js": "/TPFinaleWeb/precache-manifest.3ec877295b415fc532824adb2d5dc238.js",
+    "service-worker.js": "/TPFinaleWeb/service-worker.js",
+    "static/css/main.0b9c011b.chunk.css.map": "/TPFinaleWeb/static/css/main.0b9c011b.chunk.css.map"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7ad53927.js",
+    "static/js/2.2a193634.chunk.js",
+    "static/css/main.0b9c011b.chunk.css",
+    "static/js/main.f29affe8.chunk.js"
+  ]
+}
